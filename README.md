@@ -1,3 +1,3 @@
 # dsa-projects
 
-for SEM2
+my personal memory garden for all the DSA problems I solved
