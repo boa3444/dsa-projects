@@ -23,6 +23,7 @@ int main()
 	return 0 ;
 }
 
+//in the improved version we find the min from unsorted part and swap it with first element in the unsorted part and the swapped ones become sorted array's parts
 void improv_selection_sort ( int * arr , int size)
 {
 	int min= arr[0], min_ind;
@@ -40,7 +41,7 @@ void improv_selection_sort ( int * arr , int size)
 			}
 
 		}
-		printf("Min: %d\n" , min);
+//		printf("Min: %d\n" , min);
 		int temp = arr[swap_at];
 		arr[swap_at] = min;
 		arr[min_ind] = temp;
