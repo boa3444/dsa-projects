@@ -31,16 +31,17 @@ void insertion_sort ( int * arr , int len)
 //	int from = 1;
 	for ( int i = 1 ;i< len ; i++)
 	{
-		int to_sort = arr[i]
-		for ( int inner_i = i ; inner_i > 0 ;inner_i--)
+		int to_sort = arr[i];
+		int to_insert_at = i;
+		for ( int inner_i = i-1 ; inner_i >= 0 ;inner_i--)
 		{
-			if ( to_sort < arr[inner_i - 1]
+			if ( to_sort < arr[inner_i])
 			{
-				int temp = to_sort;
-				to_sort = arr[inner_i-1];
-				arr[inner-1] = temp;
+				arr[inner_i + 1] = arr[inner_i];
+				to_insert_at = inner_i;
 			}
 
 		}
+		arr[to_insert_at] = to_sort;
 	}
 }
