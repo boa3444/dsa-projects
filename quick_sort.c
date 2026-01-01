@@ -1,3 +1,8 @@
+
+// better the left and right arr logic here
+// manipulate them in such a way that arr changes as well
+// you can add start ind and end ind logic in setting_up_pivot
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,7 +21,6 @@ int main()
 	}
 
 	int main_pivot_ind = setting_up_pivot(arr , size);  //first pivot index
-//	0 1 2 3 4 5 6 7
 
 	quick_sort(arr , main_pivot_ind , size);
 
@@ -66,7 +70,7 @@ void quick_sort(int * arr, int pivot_ind,int len )
 {
 	if ((len == 0) || (len == 1))
 		return;
-
+//	0 1 2 3 4 5 6
 	int * left_arr = malloc ( sizeof(int) * pivot_ind);
 	int size_right_arr = (len-1) - pivot_ind;
 	int * right_arr = malloc( sizeof(int) * size_right_arr);
