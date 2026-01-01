@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 int setting_up_pivot(int * , int ); //returns the pivot index
-void quick_sort(int * arr ,int len);
+void quick_sort(int * arr,int pivot_ind ,int len);
 
 
 int main()
@@ -15,14 +15,10 @@ int main()
 		scanf(" %d" , &arr[i]);
 	}
 
-	int main_pivot_ind = setting_up_pivot(arr , size); //store the first setted pivot final index here
+	int main_pivot_ind = setting_up_pivot(arr , size);  //first pivot index
+//	0 1 2 3 4 5 6 7
 
-	0 1 2 3 4 5 6 7
-	int * left_arr = malloc ( sizeof(int) * main_pivot_ind);
-	int size_right_arr = (len-1) - main_pivot_ind;
-	int * right_arr = malloc( sizeof(int) * size_right_arr);
-
-	
+	quick_sort(arr , main_pivot_ind , size);
 
 	for ( int i = 0;i< size;i++)
 	{
@@ -66,11 +62,22 @@ int setting_up_pivot( int * arr, int len)
 	return final_ind_pivot;
 }
 
-void quick_sort(int * arr, int len )
+void quick_sort(int * arr, int pivot_ind,int len )
 {
-	if (len == 1 )
+	if ((len == 0) || (len == 1))
 		return;
 
-	setting_up_pivot(arr , len);
-	len--;
+	int * left_arr = malloc ( sizeof(int) * pivot_ind);
+	int size_right_arr = (len-1) - pivot_ind;
+	int * right_arr = malloc( sizeof(int) * size_right_arr);
+
+
+	int left_pivot_ind = setting_up_pivot(left_arr , pivot_ind);
+	quick_sort(left_arr , left_pivot_ind, left_pivot_ind);
+
+	int right_pivot_ind = setting_up_pivot(right_arr , size_right_arr);
+	quick_sort(right_arr , right_pivot_ind, size_right_arr);
+
+
 }
+
