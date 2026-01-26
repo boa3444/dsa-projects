@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+//proper pointer version
 typedef struct node {
 	int data;
 	struct node * poi;
